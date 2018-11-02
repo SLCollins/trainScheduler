@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>Catbus Schedule</title>
+    <link rel = "stylesheet" href = "assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel = "stylesheet" href="assets/css/style.css">
+ <!--Firebase-->
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+
+<!--momentJS-->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js">
+</script>
+
+<!--jQuery-->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+</script>
+
+</head>   
+ 
+ <body>
+     
+    <div class="jumbotron">
+    <h1 class="display-4 text-center">Catbus Schedule</h1>
+    <hr class="m-5">
+    <h4 class="lead text-center"><span id=currentTime></span></h4>
+    <br>
+    <img src="assets/images/runningCatBus.png" style="width: 250px; height: 250px; margin-left: 630px;">
+    </div>
+    <div class = "container">
+    <div class="row">
+
+<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+<div class="panel panel-primary">
+    
+<div class = "panel-heading" style = "background-color:grey;">
+    <h2 class = "panel-title">Current Catbuses</h2>
+    </div>
+
+<div class="panel-body">
+<div class = "table table-hover">
+    <table class = "train-schedule" id = "trainInfo">
+        <thead>
+        <tr>
+        <th class = "col-xs-3">
+            Train Name
+        </th>
+        <th class = "col-xs-2">
+            Destination
+        </th>
+        <th class = "col-xs-2">
+            Frequncy (min)
+        </th>
+        <th class = "col-xs-2">
+            Next Arrival
+        </th>
+        <th class  = "col-xs-2">
+            Mins Away
+        </th>                                          
+        </tr>
+        </thead>
+        <tbody id="trainInfo">
+            <tr></tr>
+        </tbody>
+        </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class = "container input-container">
+    <div class = "row">
+        
+<!--area where users can add a new train. info will be stored on firebase and in a table display-->
+<div class = "col-d-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <div class = "panel panel-primary">
+        <div class ="panel-heading" style="background-color: grey;">
+            <h2 class ="panel-title">Add Catbus</h2>
+            </div>
+        <div class = "panel-body">
+<form role = "form">
+<div class="form-group">
+<label for="text">
+    Train Name
+</label>
+<input type="text" class="form-control" id="inputTrainName" placeholder="Enter train name">
+</div>
+
+<div class="form-group">
+<label for="text">
+    Destination
+</label>
+<input type="text" class="form-control" id="inputDestination" placeholder="Enter train destination">
+</div>
+    
+<div class="form-group">
+<label for="comment">
+    First Train Time (HH:mm - military time)
+</label>
+<input type="" class="form-control" id="inputFirstTrain" placeholder="Enter first train">
+</div>
+
+<div class = "form-group">
+<label for = "trainFrequency">
+    Frequency
+</label>
+<input type = "text" class = "form-control" id = "inputTrainFrequency" placeholder="Enter train frequency">
+</div>
+</form>
+   </div>
+   </div>
+   </div>
+   </div>
+   <button type="button" class="btn btn-primary" style="float:right;" id="submit">Submit</button>    
+   </div>
+  
+
+
+
+
+    <script src="assets/javascript/app.js">
+    </script>
+ </body>
+</html>
